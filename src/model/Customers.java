@@ -28,7 +28,7 @@ public class Customers
 		double thisAmount=0;
 		Rental each=(Rental) rentals.nextElement();
 		
-		thisAmount = this.amountFor(each);
+		thisAmount = each.getCharge();
 		
 		frequentRenterPoints++;
 		if( (each.getMovie().getPriceCode()== Movie.NEW_RELEASE)
