@@ -3,6 +3,11 @@ package model;
 public abstract class Price {
 	abstract int getPriceCode();
 	abstract double getCharge(int daysRented);
+	
+	public int getFrequentRenterPoints(int daysRented){
+			return 1;
+	}
+	
 }
 
 class ChildrensPrice extends Price {
@@ -24,6 +29,11 @@ class ChildrensPrice extends Price {
 
 class NewReleasePrice extends Price {
 
+	@Override
+	public int getFrequentRenterPoints(int daysRented){
+		return (daysRented > 1) ? 2 : 1;
+	}
+	
 	@Override
 	public double getCharge(int daysRented) {
 		return daysRented * 3;
